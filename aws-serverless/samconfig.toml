@@ -1,0 +1,12 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "goLineBotTemplate"
+region = "us-east-1"
+capabilities = "CAPABILITY_IAM"
+confirm_changeset = true
+s3_prefix = "goLineBotTemplate"
+parameter_overrides = "ApiStageName=\"v1\""
+resolve_s3 = true
+image_repositories = []
