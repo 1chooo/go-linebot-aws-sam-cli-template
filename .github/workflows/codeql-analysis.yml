@@ -1,35 +1,35 @@
----
-name: CodeQL
+# ---
+# name: CodeQL
 
-on:
-  push:
-    # branches: [main]
-    # branches-ignore:
-    #   - "dependabot/**"
+# on:
+#   push:
+#     # branches: [main]
+#     branches-ignore:
+#       - "dependabot/**"
 
-  pull_request:
-    # The branches below must be a subset of the branches above
-    # branches: [main]
-  # schedule:
-  #   - cron: 0 18 1,16 * *
+#   pull_request:
+#     # The branches below must be a subset of the branches above
+#     branches: [main]
+#   schedule:
+#     - cron: 0 18 1,16 * *
 
-jobs:
-  analyse:
-    name: Analyse
-    runs-on: ubuntu-20.04
+# jobs:
+#   analyse:
+#     name: Analyse
+#     runs-on: ubuntu-20.04
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 2
-      - run: git checkout HEAD^2
-        if: ${{ github.event_name == 'pull_request' }}
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@v3
-        with:
-          languages: go
-      - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v3
-        with:
-          checkout_path: ./function
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v3
+#         with:
+#           fetch-depth: 2
+#       - run: git checkout HEAD^2
+#         if: ${{ github.event_name == 'pull_request' }}
+#       - name: Initialize CodeQL
+#         uses: github/codeql-action/init@v3
+#         with:
+#           languages: go
+#       - name: Perform CodeQL Analysis
+#         uses: github/codeql-action/analyze@v3
+#         with:
+#           checkout_path: ./function
